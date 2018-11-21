@@ -509,7 +509,7 @@ class TestCacheSerializerData:
 class TestDefaultInclusions:
     def setup(self):
         class ExampleSerializer(serializers.Serializer):
-            char = serializers.CharField(default='abc')
+            char = serializers.CharField(read_only=True, default='abc')
             integer = serializers.IntegerField()
         self.Serializer = ExampleSerializer
 

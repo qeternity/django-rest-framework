@@ -217,16 +217,9 @@ class TestSource:
 class TestReadOnly:
     def setup(self):
         class TestSerializer(serializers.Serializer):
-            read_only = serializers.ReadOnlyField(default="789")
+            read_only = serializers.ReadOnlyField()
             writable = serializers.IntegerField()
         self.Serializer = TestSerializer
-
-    def test_writable_fields(self):
-        """
-        Read-only fields should not be writable, even with default ()
-        """
-        serializer = self.Serializer()
-        assert len(serializer._writable_fields) == 1
 
     def test_validate_read_only(self):
         """
